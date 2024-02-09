@@ -38,6 +38,12 @@ import tempfile
 from langchain_community.document_loaders import UnstructuredFileLoader
 from unstructured.cleaners.core import clean_extra_whitespace
 
+
+import os
+import shutil
+
+
+
 def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
