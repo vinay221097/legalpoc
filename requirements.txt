@@ -97,7 +97,6 @@ python-iso639
 python-magic
 python-multipart==0.0.7
 pytz
-pywin32
 sentence-transformers
 transformers==4.35.2
 unstructured==0.11.6
