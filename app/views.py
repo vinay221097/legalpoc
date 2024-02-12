@@ -52,7 +52,7 @@ def format_docs(docs):
 
 os.environ["OPENAI_API_KEY"]=os.environ.get("OPENAI_API_KEY","")
 
-llm = ChatOpenAI(model_name="gpt-4-1106-preview", temperature=0)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo-1106", temperature=0.1)
 
 # Define the name of the bot
 name = 'SolonX'
@@ -136,7 +136,7 @@ def generate_response(prompt_input):
     response= rag_chain_with_source.invoke(prompt_input)
     print(response)
     if 'html' in response['answer']:
-        response['answer']=response['answer'].replace('html','')
+        response['answer']=response['answer'].replace('html','',1)
     if "```" in response['answer']:
         response['answer']=response['answer'].replace("```",'')
 
