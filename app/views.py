@@ -52,7 +52,7 @@ def format_docs(docs):
 
 os.environ["OPENAI_API_KEY"]=os.environ.get("OPENAI_API_KEY","")
 
-llm = ChatOpenAI(model_name="gpt-3.5-turbo-1106", temperature=0.9)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo-1106", temperature=0)
 
 # Define the name of the bot
 name = 'SolonX'
