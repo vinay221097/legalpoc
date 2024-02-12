@@ -37,7 +37,7 @@ from langchain.schema.runnable import RunnableMap
 import tempfile
 from langchain_community.document_loaders import UnstructuredFileLoader
 from unstructured.cleaners.core import clean_extra_whitespace
-
+from langchain_openai import OpenAIEmbeddings
 
 import os
 import shutil
@@ -52,7 +52,7 @@ def format_docs(docs):
 
 os.environ["OPENAI_API_KEY"]=os.environ.get("OPENAI_API_KEY","")
 
-llm = ChatOpenAI(model_name="gpt-3.5-turbo-1106", temperature=0)
+llm = ChatOpenAI(model_name="gpt-4-1106-preview", temperature=0)
 
 # Define the name of the bot
 name = 'SolonX'
@@ -60,8 +60,8 @@ name = 'SolonX'
 # Define the role of the bot
 role = 'Assistant'
 
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-
+# embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+embeddings=OpenAIEmbeddings()
 
 
 # App modules
