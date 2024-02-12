@@ -50,7 +50,7 @@ def format_docs(docs):
 
 # Set the OpenAI API key
 print(os.getenv("OPENAI_API_KEY"))
-os.environ["OPENAI_API_KEY"]=os.getenv("OPENAI_API_KEY")
+os.environ["OPENAI_API_KEY"]=os.environ.get("OPENAI_API_KEY","")
 
 llm = ChatOpenAI(model_name="gpt-3.5-turbo-1106", temperature=0.9)
 
