@@ -135,6 +135,11 @@ def generate_response(prompt_input):
 
     response= rag_chain_with_source.invoke(prompt_input)
     print(response)
+    if 'html' in response:
+        response=response.replace('html','')
+    if "```" in response:
+        response=response.replace("```",'')
+
 
     if ("don't have information" in response['answer']) or ("I do not know" in response['answer']) or ("not known" in response['answer']) or ("can't answer" in response['answer']):
         source_docs=""
