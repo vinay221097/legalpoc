@@ -104,13 +104,15 @@ demo = {
 
       data: {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
-        datasets: [{
-            borderColor: "#6bd098",
-            backgroundColor: "#6bd098",
+        datasets: [
+          {
+            borderColor: "#fcc468",
+            backgroundColor: "#fcc468",
             pointRadius: 0,
             pointHoverRadius: 0,
             borderWidth: 3,
-            data: [300, 310, 316, 322, 330, 326, 333, 345, 338, 354]
+            label: 'answered',
+            data:  [44, 74, 23, 27, 6, 13, 21, 33, 96, 20]
           },
           {
             borderColor: "#f17e5d",
@@ -118,25 +120,18 @@ demo = {
             pointRadius: 0,
             pointHoverRadius: 0,
             borderWidth: 3,
-            data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420]
-          },
-          {
-            borderColor: "#fcc468",
-            backgroundColor: "#fcc468",
-            pointRadius: 0,
-            pointHoverRadius: 0,
-            borderWidth: 3,
-            data: [370, 394, 415, 409, 425, 445, 460, 450, 478, 484]
+            label:'unanswered',
+            data:  [3, 7, 31, 12, 25, 72, 32, 8, 24, 19]
           }
         ]
       },
       options: {
         legend: {
-          display: false
+          display: true
         },
 
         tooltips: {
-          enabled: false
+          enabled: true
         },
 
         scales: {
@@ -179,7 +174,7 @@ demo = {
     myChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: [1, 2, 3],
+        labels: ["Useful","Need more info","Out Of context","Not Useful"],
         datasets: [{
           label: "Emails",
           pointRadius: 0,
@@ -198,7 +193,8 @@ demo = {
       options: {
 
         legend: {
-          display: false
+          display: true,
+          position:'top'
         },
 
         pieceLabel: {
@@ -242,38 +238,67 @@ demo = {
 
     var speedCanvas = document.getElementById("speedChart");
 
-    var dataFirst = {
+    var data1 = {
       data: [0, 19, 15, 20, 30, 40, 40, 50, 25, 30, 50, 70],
       fill: false,
       borderColor: '#fbc658',
       backgroundColor: 'transparent',
       pointBorderColor: '#fbc658',
       pointRadius: 4,
+      label: 'General',
       pointHoverRadius: 4,
       pointBorderWidth: 8,
     };
 
-    var dataSecond = {
+    var data2 = {
       data: [0, 5, 10, 12, 20, 27, 30, 34, 42, 45, 55, 63],
       fill: false,
-      borderColor: '#51CACF',
+      borderColor: '#ef8157',
       backgroundColor: 'transparent',
-      pointBorderColor: '#51CACF',
+      pointBorderColor: '#ef8157',
       pointRadius: 4,
+      label:'Policy Info',
+      pointHoverRadius: 4,
+      pointBorderWidth: 8
+    };
+
+    var data3 = {
+      data:  [3, 7, 31, 12, 25, 72, 32, 8, 94, 19],
+      fill: false,
+      borderColor: '#4acccd',
+      backgroundColor: 'transparent',
+      pointBorderColor: '#4acccd',
+      pointRadius: 4,
+      label:'Legal Info',
+      pointHoverRadius: 4,
+      pointBorderWidth: 8
+    };
+
+    var data4 = {
+      data:  [44, 74, 23, 27, 6, 13, 21, 33, 6, 20],
+      fill: false,
+      borderColor: '#e3e3e3',
+      backgroundColor: 'transparent',
+      pointBorderColor: '#e3e3e3',
+      pointRadius: 4,
+      label:'Other',
       pointHoverRadius: 4,
       pointBorderWidth: 8
     };
 
     var speedData = {
-      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      datasets: [dataFirst, dataSecond]
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
+      datasets: [data1, data2,data3,data4]
     };
 
     var chartOptions = {
       legend: {
-        display: false,
+        display: true,
         position: 'top'
-      }
+      },
+      tooltips: {
+          enabled: true
+        }
     };
 
     var lineChart = new Chart(speedCanvas, {
